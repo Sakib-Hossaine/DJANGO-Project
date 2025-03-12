@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="signup-container">
+    <div class="green-background">
+        <img src="{% static 'images/kids.png' %}" alt="Let's Learn Image" class="background-image">
+    </div>
+    <div class="content">
+        <h1 class="animated-heading">Join Let's Learn to activate your Learning</h1>
+        <p>Log in to Let's Learn to get started!</p>
+
+        <h2 class="animated-subheading">Sign up</h2>
+        <p>Join Let's Learn for free as a</p>
+        <div class="button-group">
+            <button class="role-button active" id="learner-btn">Learner</button>
+            <button class="role-button " id="teacher-btn">Teacher</button>
+            <button class="role-button" id="parent-btn">Parent</button>
+        </div>
+        <div class="signup-box" id="learner-signup">
+            <div class="parent-login-options">
+                <button class="login-button google">
+                    <img src="{% static 'images/newggl.png' %}" alt="Google Logo">
+                    Continue with Google
+                </button>
+                <button class="login-button facebook">
+                    <img src="{% static 'images/fb.png' %}" alt="Facebook Logo">
+                    Continue with Facebook
+                </button>
+                <button class="login-button apple">
+                    <img src="{% static 'images/newapple.png' %}" alt="Apple Logo">
+                    Continue with Apple
+                </button>
+                <button class="login-button email">Sign up with Email</button>
+            </div>
+        </div>
+
+        <p class="login-link">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="course-container">
+    <div class="course-header">
+        <h1>All Courses</h1>
+        <div class="course-category-dropdown">
+            <select id="course-category-select">
+                <option value="all">All Categories</option>
+                <option value="python">Python</option>
+                <option value="web-development">Web Development</option>
+                <option value="sql">SQL</option>
+                <option value="php">PHP</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="course-list">
+        <div class="course-item course-python">
+            <img src="{% static 'images/1.png' %}" alt="Python Course">
+            <div class="course-info">
+                <h2>The Complete Python Bootcamp From Zero to Hero</h2>
+                <p>Jose Portilla, Pierian Training</p>
+                <div class="course-rating">4.6 ★★★★☆ (2020:719)</div>
+                <div class="course-price">$10.99 <span class="course-original-price">$75.00</span></div>
+            </div>
+        </div>
+
+        <div class="course-item course-web-development">
+            <img src="{% static 'images/2.png' %}" alt="Web Development Course">
+            <div class="course-info">
+                <h2>The Complete Full-Stack Web Development Bootcamp</h2>
+                <p>Dr. Angela D., Developer and Lead Instructor</p>
+                <div class="course-rating">4.7 ★★★★☆ (2025:822)</div>
+                <div class="course-price">$10.99 <span class="course-original-price">$75.00</span></div>
+            </div>
+        </div>
+        <div class="course-item course-python">
+         <img src="{% static 'images/3.png' %}" alt="Python Course">
+         <div class="course-info">
+             <h2>The Complete Python Bootcamp From Zero to Hero</h2>
+             <p>Jose Portilla, Pierian Training</p>
+             <div class="course-rating">4.6 ★★★★☆ (2020:719)</div>
+             <div class="course-price">$10.99 <span class="course-original-price">$75.00</span></div>
+         </div>
+     </div>
+     
+     <div class="course-item course-web-development">
+         <img src="{% static 'images/4.png' %}" alt="Web Development Course">
+         <div class="course-info">
+             <h2>The Complete Full-Stack Web Development Bootcamp</h2>
+             <p>Dr. Angela D., Developer and Lead Instructor</p>
+             <div class="course-rating">4.7 ★★★★☆ (2025:822)</div>
+             <div class="course-price">$10.99 <span class="course-original-price">$75.00</span></div>
+         </div>
+     </div>
+     
+     <div class="course-item course-automation">
+         <img src="{% static 'images/5.png' %}" alt="Automation Course">
+         <div class="course-info">
+             <h2>Automate the Boring Stuff with Python Programming</h2>
+             <p>Al Sweigart</p>
+             <div class="course-rating">4.6 ★★★★☆ (115:534)</div>
+             <div class="course-price">$10.99 <span class="course-original-price">$75.00</span></div>
+         </div>
+     </div>
+     
+     <div class="course-item course-sql">
+         <img src="{% static 'images/6.png' %}" alt="SQL Course">
+         <div class="course-info">
+             <h2>The Complete Oracle SQL Bootcamp (2025)</h2>
+             <p>Database Masters Training | 250,000+ Students</p>
+             <div class="course-rating">4.6 ★★★★☆ (22:579)</div>
+             <div class="course-price">$12.99 <span class="course-original-price">$83.00</span></div>
+         </div>
+     </div>
+     
+    
+
+        <!-- Add more course items here -->
+
+</div>
+{% endblock %}

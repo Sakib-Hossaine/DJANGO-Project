@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="NOTES-container">
+    <div class="NOTES-header">
+        <h1>Educational Resources Notes</h1>
+        <p>Uploaded by Md. Sakib Hossaine</p>
+    </div>
+
+    <div class="NOTES-content">
+        <h2>EDUCATIONAL RESOURCES NOTES</h2>
+        <p>An educational resource is any material, tool, or content designed to support learning and teaching. These resources can be physical items, digital content, or intellectual aids that facilitate the educational process. They are used to help students acquire knowledge, develop skills, or deepen their understanding of a particular subject.</p>
+        <p>Examples of educational resources include:</p>
+        <ul>
+            <li>Textbooks and printed materials (e.g., workbooks, reference books)</li>
+            <li>Digital content, such as eBooks, educational websites, videos, and apps</li>
+            <li>Lesson plans, worksheets, and other teacher-created materials</li>
+            <li>Interactive tools like educational songs and virtual labs.</li>
+        </ul>
+    </div>
+
+    <div class="NOTES-related-notes">
+        <h3>You might also like:</h3>
+        <div class="NOTES-related-item" data-item="PDE 701">
+            <p>PDE 701 History of Education in Nigeria</p>
+            <p>Module 3</p>
+            <p>21 pages</p>
+            <div class="NOTES-rating-display">
+                Rating: <span class="NOTES-rating-value">0</span>/5
+            </div>
+            <button class="NOTES-download-button">
+                <img src="{% static 'images/down.png' %}" alt="Download">
+                Download
+            </button>
+            <button class="NOTES-report-button" onclick="reportItem('PDE 701')">Report</button>
+        </div>
+        <div class="NOTES-related-item" data-item="ENGAGE Template">
+            <p>ENGAGE Student Centered Lesson Plan Template</p>
+            <p>23 pages</p>
+            <div class="NOTES-rating-display">
+                Rating: <span class="NOTES-rating-value">0</span>/5
+            </div>
+            <button class="NOTES-download-button">
+                <img src="{% static 'images/down.png' %}" alt="Download">
+                Download
+            </button>
+            <button class="NOTES-report-button" onclick="reportItem('ENGAGE Template')">Report</button>
+        </div>
+        <div class="NOTES-related-item" data-item="CT 200">
+            <p>CT 200 Module 1 Unit 1</p>
+            <p>22 pages</p>
+            <div class="NOTES-rating-display">
+                Rating: <span class="NOTES-rating-value">0</span>/5
+            </div>
+            <button class="NOTES-download-button">
+                <img src="{% static 'images/down.png' %}" alt="Download">
+                Download
+            </button>
+            <button class="NOTES-report-button" onclick="reportItem('CT 200')">Report</button>
+        </div>
+        <div class="NOTES-related-item" data-item="EF100">
+            <p>EF100 Course Outline N - 101739</p>
+            <p>7 pages</p>
+            <div class="NOTES-rating-display">
+                Rating: <span class="NOTES-rating-value">0</span>/5
+            </div>
+            <button class="NOTES-download-button">
+                <img src="{% static 'images/down.png' %}" alt="Download">
+                Download
+            </button>
+            <button class="NOTES-report-button" onclick="reportItem('EF100')">Report</button>
+        </div>
+        <div class="NOTES-related-item" data-item="CT 201">
+            <p>CT 201 x it & 2nd MODULE</p>
+            <p>100% (!)</p>
+            <div class="NOTES-rating-display">
+                Rating: <span class="NOTES-rating-value">0</span>/5
+            </div>
+            <button class="NOTES-download-button">
+                <img src="{% static 'images/down.png' %}" alt="Download">
+                Download
+            </button>
+            <button class="NOTES-report-button" onclick="reportItem('CT 201')">Report</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Reporting -->
+<div id="NOTES-report-modal" class="NOTES-modal">
+    <div class="NOTES-modal-content">
+        <span class="NOTES-close-modal" onclick="closeModal('NOTES-report-modal')">&times;</span>
+        <h3>Report this Item</h3>
+        <textarea id="NOTES-report-reason" placeholder="Enter your reason for reporting..."></textarea>
+        <button onclick="submitReport()">Submit</button>
+    </div>
+</div>
+{% endblock %}

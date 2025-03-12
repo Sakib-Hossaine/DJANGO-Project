@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="signup-container">
+    <div class="green-background">
+        <img src="{% static 'images/boy.png' %}" alt="Let's Learn Image" class="background-image">
+    </div>
+    <div class="content">
+        <h1 class="animated-heading">Log in</h1>
+        <p>Log in to Let's Learn to get started!</p>
+
+        
+       
+        <div class="signup-box-mm" id="learner-signup">
+            <div class="login-options-mm">
+                <button class="login-button google">
+                    <img src="{% static 'images/google-logo.png' %}" alt="Google Logo">
+                    Continue with Google
+                </button>
+                <button class="login-button facebook">
+                    <img src="{% static 'images/facebook-logo.png' %}" alt="Facebook Logo">
+                    Continue with Facebook
+                </button>
+                <button class="login-button apple">
+                    <img src="{% static 'images/apple-logo.png' %}" alt="Apple Logo">
+                    Continue with Apple
+                </button>
+                <button class="login-button email">Sign up with Email</button>
+                <form class="login-form">
+                  <label for="email">Email or username *</label>
+                  <input type="text" id="email" name="email" required>
+                  <label for="password">Password *</label>
+                  <input type="password" id="password" name="password" required>
+                  <a href="#" class="forgot-password">Forgot password?</a>
+                  <button type="submit" class="login-submit">Log in</button>
+              </form>
+            </div>
+        </div>
+
+        <p class="create-account">Need a Let's Learn account? <a href="{% url 'learner' %}">Create an account</a></p>
+    </div>
+</div>
+{% endblock content %}

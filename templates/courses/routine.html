@@ -1,0 +1,68 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/routine.css' %}" />
+{% endblock styles %}
+
+{% block content %}
+    <div class="routine-container">
+        <h1>Class Routine</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Days</th>
+                    <th>8-10</th>
+                    <th>10-12</th>
+                    <th>12-2</th>
+                    <th>2-4</th>
+                    <th>4-6</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td class="class-cell">MTH321</td>
+                    <td class="class-cell">MTH341</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td class="class-cell">MTH317</td>
+                    <td class="class-cell">STA311</td>
+                    <td class="class-cell">MTH311</td>
+                    <td class="class-cell">MTH313</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td class="class-cell">MTH315</td>
+                    <td class="class-cell">MTH301</td>
+                    <td class="class-cell">MTH313</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                    <td class="class-cell">MTH311</td>
+                    <td class="class-cell">MTH311</td>
+                    <td class="class-cell">MTH321</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td class="class-cell">MTH317</td>
+                    <td class="class-cell">MTH341</td>
+                    <td class="class-cell">STA311</td>
+                    <td class="class-cell">MTH301</td>
+                    <td class="class-cell">EDC310</td>
+                </tr>
+            </tbody>
+        </table>
+       
+    </div>
+{% endblock content %}

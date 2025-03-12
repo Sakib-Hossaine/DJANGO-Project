@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="signup-wrapper">
+    <div class="signup-hero">
+        <img src="{% static 'images/girl.png' %}" alt="Let's Learn Image" class="hero-image">
+    </div>
+    <div class="signup-content">
+        <h1 class="site-name animate-pop">Join Let's Learn to activate your Learning</h1>
+        <p class="animate-fade-in">sign in to Let's Learn to get started!</p>
+
+        <div class="signup-options">
+            <div class="social-login">
+                <button class="social-button google animate-fade-in">Continue with Google</button>
+                <button class="social-button facebook animate-fade-in">Continue with Facebook</button>
+                <button class="social-button apple animate-fade-in">Continue with Apple</button>
+                <button class="social-button email animate-fade-in">Sign up with Email</button>
+            </div>
+        </div>
+
+        <p class="login-prompt animate-fade-in">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+    </div>
+</div>
+{% endblock content %}
