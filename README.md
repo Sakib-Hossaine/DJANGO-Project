@@ -1,1 +1,1 @@
-# DJANGO-ptoject-
+# DJANGO-Project
