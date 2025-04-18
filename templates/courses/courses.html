@@ -16,68 +16,45 @@
     </div>
 
     <div class="course-list">
-        <div class="course-item course-python">
-            <img src="{% static 'images/1.png' %}" alt="Python Course">
+        {% for course in courses %}
+        <div class="course-item course-{{ course.category|lower|slugify }}">
+            <img src="{{ course.image.url }}" alt="{{ course.title }}" class="course-image">
             <div class="course-info">
-                <h2>The Complete Python Bootcamp From Zero to Hero</h2>
-                <p>Jose Portilla, Pierian Training</p>
-                <div class="course-rating">4.6 ★★★★☆ (2020:719)</div>
-                <div class="course-price">$10.99 <span class="course-original-price">$75.00</span></div>
+                <h2>{{ course.title }}</h2>
+                <p>{{ course.instructor.name }}{% if course.instructor.credentials %}, {{ course.instructor.credentials }}{% endif %}</p>
+                <div class="course-rating">
+                    {{ course.rating }} {{ course.get_rating_stars }} ({{ course.enrollment_year }}:{{ course.review_count }})
+                </div>
+                <div class="course-price">
+                    ${{ course.current_price }} 
+                    <span class="course-original-price">${{ course.original_price }}</span>
+                    <span class="course-discount">
+                        {{ course.get_discount_percentage }} off
+                    </span>
+                </div>
             </div>
         </div>
-
-        <div class="course-item course-web-development">
-            <img src="{% static 'images/2.png' %}" alt="Web Development Course">
-            <div class="course-info">
-                <h2>The Complete Full-Stack Web Development Bootcamp</h2>
-                <p>Dr. Angela D., Developer and Lead Instructor</p>
-                <div class="course-rating">4.7 ★★★★☆ (2025:822)</div>
-                <div class="course-price">$10.99 <span class="course-original-price">$75.00</span></div>
-            </div>
+        {% empty %}
+        <div class="no-courses">
+            <p>No courses available at the moment.</p>
         </div>
-        <div class="course-item course-python">
-         <img src="{% static 'images/3.png' %}" alt="Python Course">
-         <div class="course-info">
-             <h2>The Complete Python Bootcamp From Zero to Hero</h2>
-             <p>Jose Portilla, Pierian Training</p>
-             <div class="course-rating">4.6 ★★★★☆ (2020:719)</div>
-             <div class="course-price">$10.99 <span class="course-original-price">$75.00</span></div>
-         </div>
-     </div>
-     
-     <div class="course-item course-web-development">
-         <img src="{% static 'images/4.png' %}" alt="Web Development Course">
-         <div class="course-info">
-             <h2>The Complete Full-Stack Web Development Bootcamp</h2>
-             <p>Dr. Angela D., Developer and Lead Instructor</p>
-             <div class="course-rating">4.7 ★★★★☆ (2025:822)</div>
-             <div class="course-price">$10.99 <span class="course-original-price">$75.00</span></div>
-         </div>
-     </div>
-     
-     <div class="course-item course-automation">
-         <img src="{% static 'images/5.png' %}" alt="Automation Course">
-         <div class="course-info">
-             <h2>Automate the Boring Stuff with Python Programming</h2>
-             <p>Al Sweigart</p>
-             <div class="course-rating">4.6 ★★★★☆ (115:534)</div>
-             <div class="course-price">$10.99 <span class="course-original-price">$75.00</span></div>
-         </div>
-     </div>
-     
-     <div class="course-item course-sql">
-         <img src="{% static 'images/6.png' %}" alt="SQL Course">
-         <div class="course-info">
-             <h2>The Complete Oracle SQL Bootcamp (2025)</h2>
-             <p>Database Masters Training | 250,000+ Students</p>
-             <div class="course-rating">4.6 ★★★★☆ (22:579)</div>
-             <div class="course-price">$12.99 <span class="course-original-price">$83.00</span></div>
-         </div>
-     </div>
-     
-    
-
-        <!-- Add more course items here -->
-
+        {% endfor %}
+    </div>
 </div>
+
+<script>
+// JavaScript for category filtering
+document.getElementById('course-category-select').addEventListener('change', function() {
+    const selectedCategory = this.value;
+    const courseItems = document.querySelectorAll('.course-item');
+    
+    courseItems.forEach(item => {
+        if (selectedCategory === 'all' || item.classList.contains('course-' + selectedCategory)) {
+            item.style.display = 'none';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+</script>
 {% endblock %}

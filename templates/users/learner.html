@@ -1,42 +1,146 @@
-
 {% extends "base.html" %}
 {% load static %}
 
 {% block content %}
-<div class="signup-container">
-    <div class="green-background">
-        <img src="{% static 'images/kids.png' %}" alt="Let's Learn Image" class="background-image">
+<div class="signup-wrapper">
+    <div class="signup-hero">
+        <img src="{% static 'images/newkids.jpg' %}" alt="Let's Learn Image" class="hero-image">
     </div>
-    <div class="content">
-        <h1 class="animated-heading">Join Let's Learn to activate your Learning</h1>
-        <p>Log in to Let's Learn to get started!</p>
+    <div class="signup-content">
+        <h1 class="site-name animate-pop">Join Let's Learn <br>to activate your Learning</h1>
+        <p class="animate-fade-in">sign in to Let's Learn to get started!</p>
 
-        <h2 class="animated-subheading">Sign up</h2>
-        <p>Join Let's Learn for free as a</p>
         <div class="button-group">
             <button class="role-button active" id="learner-btn">Learner</button>
-            <button class="role-button " id="teacher-btn">Teacher</button>
+            <button class="role-button" id="teacher-btn">Teacher</button>
             <button class="role-button" id="parent-btn">Parent</button>
         </div>
-        <div class="signup-box" id="learner-signup">
-            <div class="parent-login-options">
-                <button class="login-button google">
-                    <img src="{% static 'images/newggl.png' %}" alt="Google Logo">
-                    Continue with Google
-                </button>
-                <button class="login-button facebook">
-                    <img src="{% static 'images/fb.png' %}" alt="Facebook Logo">
-                    Continue with Facebook
-                </button>
-                <button class="login-button apple">
-                    <img src="{% static 'images/newapple.png' %}" alt="Apple Logo">
-                    Continue with Apple
-                </button>
-                <button class="login-button email">Sign up with Email</button>
-            </div>
+
+        <div class="signup-options">
+            <form method="post" class="signup-form animate-fade-in">
+                {% csrf_token %}
+                <input type="hidden" name="role" id="selected-role" value="learner">
+                
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full_name" required placeholder="">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Create Password</label>
+                    <input type="password" id="password" name="password" required placeholder="">
+                    <div class=""></div>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="signup-button">Create Account</button>
+            </form>
         </div>
 
-        <p class="login-link">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+        <p class="login-prompt animate-fade-in">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
     </div>
 </div>
+
+<style>
+    /* Button Group Styles */
+    .button-group {
+        display: flex;
+        gap: 10px;
+        margin: 20px 0;
+        justify-content: center;
+    }
+    
+    .role-button {
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+    
+    .role-button.active {
+        background-color: blue;
+        color: white;
+    }
+    
+    /* Form Styles */
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+    }
+    
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+    
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+    }
+    
+    .checkbox-group input {
+        margin-right: 10px;
+    }
+    
+    .password-strength {
+        height: 4px;
+        background: #eee;
+        margin-top: 5px;
+        border-radius: 2px;
+    }
+    
+    .signup-button {
+        width: 100%;
+        padding: 14px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    // JavaScript to handle role selection
+    document.addEventListener('DOMContentLoaded', function() {
+        const roleButtons = document.querySelectorAll('.role-button');
+        const roleInput = document.getElementById('selected-role');
+        
+        roleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                roleButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                // Update hidden input value
+                roleInput.value = this.id.replace('-btn', '');
+            });
+        });
+    });
+</script>
 {% endblock content %}

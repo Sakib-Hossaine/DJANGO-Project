@@ -88,7 +88,7 @@ USE_TZ = True  # Enable time zone support
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Look for static files in the 'static' folder
 
 # Default primary key field type

@@ -13,20 +13,8 @@
         
        
         <div class="signup-box-mm" id="learner-signup">
-            <div class="login-options-mm">
-                <button class="login-button google">
-                    <img src="{% static 'images/google-logo.png' %}" alt="Google Logo">
-                    Continue with Google
-                </button>
-                <button class="login-button facebook">
-                    <img src="{% static 'images/facebook-logo.png' %}" alt="Facebook Logo">
-                    Continue with Facebook
-                </button>
-                <button class="login-button apple">
-                    <img src="{% static 'images/apple-logo.png' %}" alt="Apple Logo">
-                    Continue with Apple
-                </button>
-                <button class="login-button email">Sign up with Email</button>
+            <h1 class="site-name animate-pop">Join Let's Learn <br>  Activate Learning</h1>
+            <p class="animate-fade-in">sign in to Let's Learn to get started!</p>
                 <form class="login-form">
                   <label for="email">Email or username *</label>
                   <input type="text" id="email" name="email" required>
@@ -36,9 +24,10 @@
                   <button type="submit" class="login-submit">Log in</button>
               </form>
             </div>
+            <p class="create-account">Need a Let's Learn account? <a href="{% url 'learner' %}">Create an account</a></p>
         </div>
 
-        <p class="create-account">Need a Let's Learn account? <a href="{% url 'learner' %}">Create an account</a></p>
+        
     </div>
 </div>
 {% endblock content %}
