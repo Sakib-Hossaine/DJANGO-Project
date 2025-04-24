@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from .views import routine
 
 
 
 urlpatterns = [
-   path("routine/", views.routine, name="courses/routine"),
+   path("routine/", routine, name="courses/routine"),
 ]

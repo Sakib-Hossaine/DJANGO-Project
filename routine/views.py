@@ -3,8 +3,9 @@ from .models import Routine
 
 def routine(request):
     # Get all routines ordered by day and time slot
-    routines = Routine.objects.all().order_by('day', 'time_slot')
-    
+    routines = Routine.objects.all()
+    print("sakib")
+    print(routines)
     # Structure data for template
     days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
     time_slots = ['8-10', '10-12', '12-2', '2-4', '4-6']
@@ -28,4 +29,4 @@ def routine(request):
         'timetable': timetable,
         'time_slots': ['Day'] + time_slots  # Header row
     }
-    return render(request, 'routine/routine.html', context)
+    return render(request, 'courses/routine.html', context)
