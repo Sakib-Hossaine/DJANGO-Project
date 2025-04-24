@@ -22,7 +22,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "courses",  # Add your 'courses' app here
+    "courses",
+    "notes",
+    "routine",
+    # Add your 'courses' app here
 ]
 
 MIDDLEWARE = [
@@ -39,16 +42,18 @@ ROOT_URLCONF = "MyProject.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Look for templates in the 'templates' folder
-        'APP_DIRS': True,  # Enable Django to look for templates in app-specific 'templates' folders
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.static',  # Add this for static files
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [
+            os.path.join(BASE_DIR, "templates")
+        ],  # Look for templates in the 'templates' folder
+        "APP_DIRS": True,  # Enable Django to look for templates in app-specific 'templates' folders
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.static",  # Add this for static files
             ],
         },
     },
@@ -88,10 +93,15 @@ USE_TZ = True  # Enable time zone support
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Look for static files in the 'static' folder
+STATIC_URL = "static/"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]  # Look for static files in the 'static' folder
+
+# Media files
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 #####################################################################################settings.py
-

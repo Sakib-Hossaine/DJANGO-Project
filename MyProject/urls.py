@@ -10,9 +10,10 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("login/", views.login, name="login"),
     path("signup/", views.signup, name="signup"),
-    # Ohter app urls
+    # Other app urls
     path("", include("users.urls")),
     path("", include("courses.urls")),
+    path("", include("notes.urls")),
 ]
 
 if settings.DEBUG:
