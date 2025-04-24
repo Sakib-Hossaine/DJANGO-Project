@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% load static %}
 
@@ -12,57 +11,26 @@
         <table>
             <thead>
                 <tr>
-                    <th>Days</th>
-                    <th>8-10</th>
-                    <th>10-12</th>
-                    <th>12-2</th>
-                    <th>2-4</th>
-                    <th>4-6</th>
+                    {% for slot in time_slots %}
+                        <th>{{ slot }}</th>
+                    {% endfor %}
                 </tr>
             </thead>
             <tbody>
+                {% for day_row in timetable %}
                 <tr>
-                    <td>Monday</td>
-                    <td class="class-cell">MTH321</td>
-                    <td class="class-cell">MTH341</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    {% for cell in day_row %}
+                        {% if forloop.first %}
+                            <td>{{ cell }}</td>  <!-- Day name -->
+                        {% else %}
+                            <td class="{% if cell %}class-cell{% endif %}">
+                                {% if cell %}{{ cell.code }}{% endif %}
+                            </td>
+                        {% endif %}
+                    {% endfor %}
                 </tr>
-                <tr>
-                    <td>Tuesday</td>
-                    <td class="class-cell">MTH317</td>
-                    <td class="class-cell">STA311</td>
-                    <td class="class-cell">MTH311</td>
-                    <td class="class-cell">MTH313</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Wednesday</td>
-                    <td class="class-cell">MTH315</td>
-                    <td class="class-cell">MTH301</td>
-                    <td class="class-cell">MTH313</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Thursday</td>
-                    <td class="class-cell">MTH311</td>
-                    <td class="class-cell">MTH311</td>
-                    <td class="class-cell">MTH321</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Friday</td>
-                    <td class="class-cell">MTH317</td>
-                    <td class="class-cell">MTH341</td>
-                    <td class="class-cell">STA311</td>
-                    <td class="class-cell">MTH301</td>
-                    <td class="class-cell">EDC310</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
-       
     </div>
 {% endblock content %}

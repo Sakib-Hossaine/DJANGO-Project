@@ -14,6 +14,7 @@ urlpatterns = [
     path("", include("users.urls")),
     path("", include("courses.urls")),
     path("", include("notes.urls")),
+    path("", include('routine.urls')),
 ]
 
 if settings.DEBUG:

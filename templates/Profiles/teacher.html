@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-image">
+            {% if teacher.profile_picture %}
+                <img src="{{ teacher.profile_picture.url }}" alt="{{ teacher.user.username }}">
+            {% else %}
+                <div class="no-image">No Image</div>
+            {% endif %}
+        </div>
+        <h1>{{ teacher.user.get_full_name }}</h1>
+        <p class="username">@{{ teacher.user.username }}</p>
+    </div>
+    
+    <div class="profile-details">
+        <div class="detail-card">
+            <h3>Professional Information</h3>
+            <p><strong>Qualification:</strong> {{ teacher.qualification }}</p>
+            <p><strong>Subjects Taught:</strong> {{ teacher.subjects_taught }}</p>
+        </div>
+        
+        <div class="detail-card">
+            <h3>Contact Information</h3>
+            <p><strong>Address:</strong> {{ teacher.address }}</p>
+            <p><strong>Phone:</strong> {{ teacher.phone_number }}</p>
+            <p><strong>Email:</strong> {{ teacher.user.email }}</p>
+        </div>
+    </div>
+    
+    <div class="action-buttons">
+        <a href="{{ teacher.zoom_link }}" target="_blank" class="btn btn-primary">Start Video Call</a>
+    </div>
+</div>
+{% endblock %}

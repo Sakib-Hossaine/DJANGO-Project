@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-image">
+            {% if student.profile_picture %}
+                <img src="{{ student.profile_picture.url }}" alt="{{ student.user.username }}">
+            {% else %}
+                <div class="no-image">No Image</div>
+            {% endif %}
+        </div>
+        <h1>{{ student.user.get_full_name }}</h1>
+        <p class="username">@{{ student.user.username }}</p>
+    </div>
+    
+    <div class="profile-details">
+        <div class="detail-card">
+            <h3>Class Information</h3>
+            <p><strong>Class:</strong> {{ student.class_name }}</p>
+            <p><strong>School:</strong> {{ student.school_name }}</p>
+        </div>
+        
+        <div class="detail-card">
+            <h3>Contact Information</h3>
+            <p><strong>Address:</strong> {{ student.address }}</p>
+            <p><strong>Parent Phone:</strong> {{ student.parent_phone }}</p>
+            <p><strong>Email:</strong> {{ student.user.email }}</p>
+        </div>
+    </div>
+    
+    <div class="action-buttons">
+        <a href="{% url 'student_marks' %}" class="btn btn-primary">View Exam Marks</a>
+    </div>
+</div>
+{% endblock %}
