@@ -1,42 +1,43 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="marks-container">
-    <h1>Exam Results for {{ student.user.get_full_name }}</h1>
-    
-    <div class="back-button">
-        <a href="{% url 'profile' %}" class="btn btn-secondary">Back to Profile</a>
+    <div class="profile-header">
+        <h1>Student Marks - {{ user.username }}</h1>
     </div>
     
-    {% if exam_results %}
-    <table class="marks-table">
-        <thead>
-            <tr>
-                <th>Exam Name</th>
-                <th>Date</th>
-                <th>Math</th>
-                <th>Science</th>
-                <th>English</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for result in exam_results %}
-            <tr>
-                <td>{{ result.exam_name }}</td>
-                <td>{{ result.date_taken }}</td>
-                <td>{{ result.math_score }}</td>
-                <td>{{ result.science_score }}</td>
-                <td>{{ result.english_score }}</td>
-                <td>{{ result.total_score }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <div class="no-results">
-        <p>No exam results available yet.</p>
+    <div class="marks-table-container">
+        <table class="marks-table">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Grade</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if marks %}
+                    {% for mark in marks %}
+                    <tr>
+                        <td>{{ mark.subject }}</td>
+                        <td>{{ mark.marks }}</td>
+                        <td>{{ mark.grade }}</td>
+                        <td>{{ mark.date }}</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="no-results">No marks available yet.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
     </div>
-    {% endif %}
+    
+    <div class="action-buttons">
+        <a href="{% url 'users:profile' %}" class="btn">Back to Profile</a>
+    </div>
 </div>
 {% endblock %}
