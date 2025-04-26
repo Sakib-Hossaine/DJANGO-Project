@@ -9,6 +9,3 @@ def courses(request):
     return render(request, "courses/courses.html", {"courses": courses})
 
 
-# Routine Page View
-def routine(request):
-    return render(request, "courses/routine.html")

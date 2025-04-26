@@ -11,9 +11,10 @@ urlpatterns = [
     path("login/", views.login, name="login"),
     path("signup/", views.signup, name="signup"),
     # Other app urls
+    path("", include("users.urls")),
     path("", include("courses.urls")),
     path("", include("notes.urls")),
-    path("", include('routine.urls')),   path("", include('users.urls')),
+    path("", include('routine.urls')),
 ]
 
 if settings.DEBUG:
