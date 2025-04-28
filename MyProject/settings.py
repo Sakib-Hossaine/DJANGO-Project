@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "courses",
     "notes",
     "routine",
+    "users",
     # Add your 'courses' app here
 ]
 
@@ -105,3 +106,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 #####################################################################################settings.py
+AUTH_USER_MODEL = "users.CustomUser"
+LOGIN_URL = "users:login"
+LOGIN_REDIRECT_URL = "users:profile"

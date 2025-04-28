@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% load static %}
 
@@ -8,35 +7,78 @@
         <img src="{% static 'images/mam.png' %}" alt="Let's Learn Image" class="background-image">
     </div>
     <div class="content">
-        <h1 class="animated-heading">Join Let's Learn to activate your teaching</h1>
-        <p>Log in to Let's Learn to get started!</p>
-
-        <h2 class="animated-subheading">Sign up</h2>
-        <p>Join Let's Learn for free as a</p>
-        <div class="button-group">
-            <button class="role-button" id="learner-btn">Learner</button>
-            <button class="role-button active" id="teacher-btn">Teacher</button>
-            <button class="role-button" id="parent-btn">Parent</button>
-        </div>
+       
         <div class="signup-box" id="learner-signup">
-            <div class="parent-login-options">
-                <button class="login-button google">
-                    <img src="{% static 'images/newggl.png' %}" alt="Google Logo">
-                    Continue with Google
-                </button>
-                <button class="login-button facebook">
-                    <img src="{% static 'images/fb.png' %}" alt="Facebook Logo">
-                    Continue with Facebook
-                </button>
-                <button class="login-button apple">
-                    <img src="{% static 'images/newapple.png' %}" alt="Apple Logo">
-                    Continue with Apple
-                </button>
-                <button class="login-button email">Sign up with Email</button>
-            </div>
-        </div>
+            <h1 class="animated-heading">Activate your teaching</h1>
 
-        <p class="login-link">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+            <div class="parent-login-options">
+                <form method="post" class="signup-form animate-fade-in">
+                    {% csrf_token %}
+                    <input type="hidden" name="role" id="selected-role" value="learner">
+                    
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full_name" required placeholder="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Create Password</label>
+                        <input type="password" id="password" name="password" required placeholder="">
+                        <div class=""></div>
+                    </div>
+                    
+                    <button type="submit" class="signup-button">
+                        <span class="button-text">Create Account</span>
+                        <span class="button-icon">→</span>
+                    </button>
+                </form>
+            </div>
+            <p class="login-link">Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+        </div>
     </div>
 </div>
+
+<style>
+    .signup-button {
+        background: linear-gradient(135deg, #4CAF50, #2E7D32);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 30px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .signup-button:hover {
+        background: linear-gradient(135deg, #43A047, #1B5E20);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .signup-button:active {
+        transform: translateY(0);
+    }
+    
+    .button-icon {
+        font-size: 18px;
+        transition: transform 0.3s ease;
+    }
+    
+    .signup-button:hover .button-icon {
+        transform: translateX(3px);
+    }
+</style>
 {% endblock content %}
