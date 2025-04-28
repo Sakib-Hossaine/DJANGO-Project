@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Online Class</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .meet-container {
+            max-width: 480px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+            padding: 40px 32px 32px 32px;
+            text-align: center;
+        }
+        .meet-logo {
+            width: 80px;
+            margin-bottom: 18px;
+        }
+        .meet-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .meet-desc {
+            color: #5d6d7e;
+            font-size: 1.1rem;
+            margin-bottom: 28px;
+        }
+        .meet-link-box {
+            background: #f4f8fb;
+            border-radius: 10px;
+            padding: 18px 12px;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+            word-break: break-all;
+            color: #2980b9;
+            border: 1px solid #e1eaf2;
+        }
+
+        .meet-image-box {
+         margin-bottom: 30px;
+     }
+     .class-illustration {
+         width: 100%;
+         max-width: 320px;
+         border-radius: 12px;
+         box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+         margin: 0 auto;
+         display: block;
+     }
+
+
+        .join-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            padding: 14px 38px;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 16px rgba(67, 233, 123, 0.15);
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            text-decoration: none;
+        }
+        .join-btn:hover {
+            background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        .meet-footer {
+            margin-top: 32px;
+            color: #b2bec3;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 600px) {
+            .meet-container {
+                padding: 24px 8px;
+            }
+            .meet-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="meet-container">
+       
+        <div class="meet-title">Start Your Class</div>
+        <div class="meet-desc">
+            Click the button below to join your scheduled class session.<br>
+            Please ensure your camera and microphone are enabled.
+        </div>
+        <div class="meet-image-box">
+         <img src="{% static 'images/cls.jpg' %}" alt="Online Class" class="class-illustration">
+     </div>
+        <a href="https://meet.google.com/qwy-nmqw-gvz" target="_blank" class="join-btn">
+            Join The Class
+        </a>
+        <div class="meet-footer">
+            Powered by Google Meet &middot; For best experience, use Chrome or Edge.
+        </div>
+    </div>
+</body>
+</html>
