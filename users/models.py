@@ -25,11 +25,19 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         ('student', 'Student'),
         ('teacher', 'Teacher'),
     )
+    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=150)
     user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    class_name = models.CharField(max_length=100, blank=True, null=True)
+    school_name = models.CharField(max_length=255, blank=True, null=True)
+    address = models.CharField(max_length=255, blank=True, null=True)
+    parent_phone = models.CharField(max_length=20, blank=True, null=True)
+    qualification = models.CharField(max_length=255, blank=True, null=True)
+    subjects_taught = models.CharField(max_length=255, blank=True, null=True)
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
 
     objects = CustomUserManager()
 

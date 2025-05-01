@@ -9,13 +9,54 @@ from .models import CustomUser
 
 def register_view(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect('users:login')
     else:
         form = CustomUserCreationForm()
     return render(request, 'auth/signup.html', {'form': form})
+
+def teacher_class_call(request):
+    return render(request, 'users/teacherclasscall.html')
+
+def edit_student_profile(request):
+    student = request.user
+    if request.method == 'POST':
+        # Update fields from POST data
+        student.class_name = request.POST.get('class_name', student.class_name)
+        student.school_name = request.POST.get('school_name', student.school_name)
+        student.address = request.POST.get('address', student.address)
+        student.parent_phone = request.POST.get('parent_phone', student.parent_phone)
+        email = request.POST.get('email', student.email)
+        if email:
+            student.email = email
+            if hasattr(student, 'user'):
+                student.user.email = email
+                student.user.save()
+        # Handle profile picture upload
+        if 'profile_picture' in request.FILES:
+            student.profile_picture = request.FILES['profile_picture']
+        student.save()
+        return redirect('users:student_profile')
+    return render(request, 'users/edit_student_profile.html', {'student': student})
+
+@login_required
+def edit_teacher_profile(request):
+    teacher = request.user
+    if request.method == 'POST':
+        teacher.qualification = request.POST.get('qualification', teacher.qualification)
+        teacher.subjects_taught = request.POST.get('subjects_taught', teacher.subjects_taught)
+        teacher.address = request.POST.get('address', teacher.address)
+        teacher.phone_number = request.POST.get('phone_number', teacher.phone_number)
+        email = request.POST.get('email', teacher.email)
+        if email:
+            teacher.email = email
+        if 'profile_picture' in request.FILES:
+            teacher.profile_picture = request.FILES['profile_picture']
+        teacher.save()
+        return redirect('users:teacher_profile')
+    return render(request, 'users/edit_teacher_profile.html', {'teacher': teacher})
 
 def login_view(request):
     if request.method == 'POST':

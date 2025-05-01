@@ -103,7 +103,7 @@
         <h1 class="site-name animate-pop">Join Let's Learn to activate your Learning</h1>
         <p class="animate-fade-in">Sign up to Let's Learn to get started!</p>
         <div class="signup-options">
-            <form method="post" class="signup-form animate-fade-in" action="{% url 'users:register' %}">
+            <form method="post" class="signup-form animate-fade-in" action="{% url 'users:register' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% if form.non_field_errors %}
                     <div class="form-error">{{ form.non_field_errors }}</div>
@@ -138,6 +138,13 @@
                     </select>
                     {% if form.user_type.errors %}
                         <div class="form-error">{{ form.user_type.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="profile_picture">Profile Image</label>
+                    <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
+                    {% if form.profile_picture.errors %}
+                        <div class="form-error">{{ form.profile_picture.errors }}</div>
                     {% endif %}
                 </div>
                 <button type="submit" class="signup-button animate-pop">Sign Up</button>
