@@ -27,9 +27,16 @@ git clone https://github.com/Sakib-Hossaine/DJANGO-Project.git
 cd DJANGO-Project
 
 ### 2. Set up Python environment
-```bash
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+
+# Activate (Windows)
+venv\Scripts\activate
+
+# Activate (macOS/Linux) 
+source venv/bin/activate
+
+# Install dependencies
 pip install -r requirements.txt
 
 ### 3. Set up Django
