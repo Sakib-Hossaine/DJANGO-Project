@@ -26,18 +26,18 @@ Before you begin, ensure you have met the following requirements:
 git clone https://github.com/Sakib-Hossaine/DJANGO-Project.git
 cd DJANGO-Project
 
-2. Set up Python environment
+### 2. Set up Python environment
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 pip install -r requirements.txt
 
-3. Set up Django
+### 3. Set up Django
 ```bash
 python manage.py migrate
 python manage.py createsuperuser 
 
-4. Set up WebRTC Node.js server
+### 4. Set up WebRTC Node.js server
 ```bash
 install Node.js
 cd webrtc-node-app
