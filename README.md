@@ -1,6 +1,7 @@
 # Django Project with WebRTC Integration
 
-![Project Screenshot](screenshot.png) <!-- Replace with your actual image file -->
+![image](https://github.com/user-attachments/assets/e69926e4-b83a-487f-8290-383e5735132a)
+
 
 A Django web application with WebRTC functionality for real-time communication.
 
