@@ -32,6 +32,7 @@
                         {{ course.get_discount_percentage }} off
                     </span>
                 </div>
+                <a href="{% url 'course_detail' course.id %}" class="details-btn">Details</a>
             </div>
         </div>
         {% empty %}
@@ -57,4 +58,55 @@ document.getElementById('course-category-select').addEventListener('change', fun
     });
 });
 </script>
+{% if user.is_authenticated and user.user_type == "teacher" %}
+<a href="{% url 'add_course' %}">
+  <button class="add-course-fab" title="Add Course">+</button>
+</a>
+{% endif %}
+
+<style>
+.add-course-fab {
+    position: fixed;
+    left: 32px;
+    bottom: 32px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    box-shadow: 0 4px 16px rgba(78,84,200,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 1000;
+    transition: background 0.3s, transform 0.2s;
+    border: none;
+}
+.add-course-fab:hover {
+    background: linear-gradient(135deg, #8f94fb, #4e54c8);
+    transform: scale(1.12);
+    color: #fff;
+    text-decoration: none;
+}
+.details-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 18px;
+    background: #4e54c8;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.2s;
+    border: none;
+}
+.details-btn:hover {
+    background: #8f94fb;
+    color: #fff;
+}
+</style>
 {% endblock %}
